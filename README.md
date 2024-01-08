@@ -1,37 +1,42 @@
-import time
-from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
+# Sistēmas koncepcija
+class MedicinsVards:
+    def __init__(self, pacients, aizsardziba, vardu_vecums):
+        self.pacients = pacients
+        self.aizsardziba = aizsardziba
+        self.vardu_vecums = vardu_vecums
 
-class EHealth:
-    def __init__(self, url):
-        self.url = url
-        self.driver = webdriver.Firefox()
+# Aizsargātas elektroniskās medicīniskās kartes izstrāde
+class ElektroniskaKarte:
+    def __init__(self, pacients, medicins_vards, veselības_vēsture, konsultācijas):
+        self.pacients = pacients
+        self.medicins_vards = medicins_vards
+        self.veselības_vēsture = veselības_vēsture
+        self.konsultācijas = konsultācijas
 
-    def visit_ehealth_site(self):
-        self.driver.get(self.url)
+# Mobilās aplikācijas izstrāde
+class MobiloAplikacja:
+    def __init__(self, pacients, elektroniska_karte, aplikācijas_dizains, funkcionalitāte):
+        self.pacients = pacients
+        self.elektroniska_karte = elektroniska_karte
+        self.aplikācijas_dizains = aplikācijas_dizains
+        self.funkcionalitāte = funkcionalitāte
 
-    def create_patient_account(self, username, password):
-        time.sleep(1)
-        username_input = self.driver.find_element_by_name("username")
-        username_input.send_keys(username)
-
-        password_input = self.driver.find_element_by_name("password")
-        password_input.send_keys(password)
-
-        signup_button = self.driver.find_element_by_id("signup-button")
-        signup_button.click()
-
-    def view_medical_record(self):
-        view_record_button = self.driver.find_element_by_id("view-record-button")
-        view_record_button.click()
-
-    def consult_with_doctor(self):
-        consult_button = self.driver.find_element_by_id("consult-button")
-        consult_button.click()
-
-if __name__ == "__main__":
-    ehealth = EHealth("http://ehealth.com")
-    ehealth.visit_ehealth_site()
-    ehealth.create_patient_account("johndoe", "password123")
-    ehealth.view_medical_record()
-    ehealth.consult_with_doctor()
+# Projekta rezultātu apraksts
+projekta_rezultati = {
+    "specifikācija": {
+        "sistēma": "MedicīnsVards",
+        "kartes_izstrāde": "ElektroniskaKarte",
+        "mobilās_aplikācijas": "MobiloAplikacja"
+    },
+    "izstrādes_plāns": {
+        "koncepcijas_izstrāde": 1,
+        "prototipa_izveide": 2,
+        "kartes_izstrāde": 4,
+        "mobilās_aplikācijas": 3,
+        "testēšana_un_drošības_uzlabošana": 2,
+        "palaišana_un_tālummaiņa": 2
+    },
+    "uzdevuma_tehniskā_specifikācija": "Konceptuāla piemērojamība, lietotāju pētījumu atbilstība, tehniskā prasāmība atbilstība",
+    "izvirzīto_mērķu_izpildes_līmenis": 80,
+    "lēmuma_aktualitāte": "Veicināti izmaiņas, kas ļauj iemīļot veselības sistēmas jaunumu un pievienot savu prasmju izpildi."
+}
