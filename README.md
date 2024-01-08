@@ -1,0 +1,1 @@
+# uzdevums-3.posms
